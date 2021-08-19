@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario - JobsNET</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form>
+  <div class="dadas-pessoais">
+    <h1>Dados Pessoais</h1>
+    <div class="formulario">
+      
+      <div class="linha">
+        <div class="nome">
+          <p>Nome Completo <b>*</b></p>
+          <input type="text">
+        </div>
+        <div class="cargo">
+          <p>Cargo Pretendido</p>
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="data-nascimento">
+          <p>Data de Nascimento <b>*</b></p>
+          <input type="number" min=1 max=31>
+          <select>
+            <option></option>
+            <option>Janeiro</option>
+            <option>Fevereiro</option>
+            <option>Março</option>
+            <option>Abril</option>
+            <option>Maio</option>
+            <option>Junho</option>
+            <option>Julho</option>
+            <option>Agosto</option>
+            <option>Setembro</option>
+            <option>Outubro</option>
+            <option>Novembro</option>
+            <option>Dezemmbro</option>
+          </select>
+          <input type="number" min=1900 max=2021>
+        </div>
+        <div class="estado-civil">
+          <p>Estado Civil</p>
+          <select>
+            <option></option>
+            <option>Solteiro(a)</option>
+            <option>Casado(a)</option>
+            <option>Separado(a)</option>
+            <option>Divorciado(a)</option>
+            <option>Viuvo(a)</option>
+          </select>
+        </div>
+        <div class="genero">
+          <p>Gênero</p>
+          <select>
+            <option></option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Não binário</option>
+            <option>Não informar</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="linha">
+        <div class="endereço">
+          <p>Endereço<b>*</b></p>
+          <input type="text" placeholder="ex Nome da Rua, 56. Bloco 2, AP 301">
+        </div>
+      </div>
+      
+      <div class="linha">
+        <div class="bairro">
+          <p>Bairro <b>*</b></p>
+          <input type="text">
+        </div>
+        <div class="cidade">
+          <p>Cidade <b>*</b></p>
+          <input type="text">
+        </div>
+        <div class="cep">
+          <p>Cep</p>
+          <input type="text">
+        </div>
+      </div>
+      
+      <div class="linha">
+        <div class="celular">
+          <p>Celular</p>
+          <input type="tel">
+        </div>
+        <div class="telefone">
+          <p>Fixo</p>
+          <input type="tel">
+        </div>
+        <div class="email">
+          <p>E-mail <b>*</b></p>
+          <input type="email">
+        </div>
+      </div>
+      </div>
+  </div>
+  <div></div>
+  </form>
+</body>
+</html>
