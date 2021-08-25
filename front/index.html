@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario - JobsNET</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,7 +24,7 @@
           <input type="text">
         </div>
         <div class="cargo">
-          <p>Cargo Pretendido</p>
+          <p>Profissão <b>*</b></p>
           <input type="text">
         </div>
       </div>
@@ -29,7 +32,7 @@
       <div class="linha">
         <div class="data-nascimento">
           <p>Data de Nascimento <b>*</b></p>
-          <input type="number" min=1 max=31>
+          <input class="dia" type="number" min=1 max=31>
           <select>
             <option></option>
             <option>Janeiro</option>
@@ -45,7 +48,7 @@
             <option>Novembro</option>
             <option>Dezemmbro</option>
           </select>
-          <input type="number" min=1900 max=2021>
+          <input class="ano" type="number" min=1900 max=2021>
         </div>
         <div class="estado-civil">
           <p>Estado Civil</p>
@@ -74,9 +77,17 @@
       </div>
 
       <div class="linha">
-        <div class="endereço">
-          <p>Endereço<b>*</b></p>
-          <input type="text" placeholder="ex Nome da Rua, 56. Bloco 2, AP 301">
+        <div class="rua">
+          <p>Rua <b>*</b></p>
+          <input type="text">
+        </div>
+        <div class="numero">
+          <p>Número <b>*</b></p>
+          <input type="text">
+        </div>
+        <div class="complemento">
+          <p>Complemento</p>
+          <input type="text">
         </div>
       </div>
 
@@ -90,19 +101,23 @@
           <input type="text">
         </div>
         <div class="cep">
-          <p>Cep</p>
+          <p>Cep <b>*</b></p>
+          <input type="text">
+        </div>
+        <div class="estado">
+          <p>Estado <b>*</b></p>
           <input type="text">
         </div>
       </div>
 
       <div class="linha">
         <div class="celular">
-          <p>Celular</p>
-          <input type="tel">
+          <p>Celular <b>*</b></p>
+          <input type="tel" placeholder="XX XXXXX-XXXX">
         </div>
         <div class="telefone">
           <p>Fixo</p>
-          <input type="tel">
+          <input type="tel" placeholder="XX XXXX-XXXX">
         </div>
         <div class="email">
           <p>E-mail <b>*</b></p>
@@ -127,7 +142,7 @@
           </div>
 
 
-          <div class="veículo">
+          <div class="veiculo">
             <p> Possui Veículo</p>
             <select>
               <option></option>
@@ -137,7 +152,7 @@
           </div>
 
 
-          <div class="habilitação">
+          <div class="habilitacao">
             <p> Habilitação </p>
             <select>
               <option></option>
@@ -146,8 +161,10 @@
             </select>
           </div>
         </div>
+        <div class="submit"> Enviar </div>
       </div>
   </form>
+  <script src="./app.js"></script>
 </body>
 
 </html>
