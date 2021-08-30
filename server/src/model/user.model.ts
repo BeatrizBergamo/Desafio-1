@@ -18,7 +18,7 @@ export enum MaritalStatus {
 }
 
 export interface UserModel {
-  id: string;
+  id?: string;
   name: string;
   email: string;
   cpf: string;

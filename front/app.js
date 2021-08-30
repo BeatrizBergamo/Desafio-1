@@ -14,12 +14,12 @@ function handleSubmit() {
   const maritalStatus = document.querySelector(".estado-civil select").value
   const gender = document.querySelector(".genero select").value
   const street = document.querySelector(".rua input").value
-  const number = document.querySelector(".numero input").value
+  const streetNumber = document.querySelector(".numero input").value
   const complement = document.querySelector(".complemento input").value
   const neighborhood = document.querySelector(".bairro input").value
   const city = document.querySelector(".cidade input").value
   const state = document.querySelector(".estado input").value
-  const zipCode = document.querySelector(".cep input").value
+  const cep = document.querySelector(".cep input").value
   const celphone = document.querySelector(".celular input").value
   const telphone = document.querySelector(".telefone input").value
   const email = document.querySelector(".email input").value
@@ -27,11 +27,11 @@ function handleSubmit() {
   const cpf = document.querySelector(".CPF input").value
   const vehicle = document.querySelector(".veiculo select").value
   const licence = document.querySelector(".habilitacao select").value
-  
+
   const validName = isNotNull(name)
   const validStreet = isNotNull(street)
   const validNeighborhood = isNotNull(neighborhood)
-  const validNumber = isNotNull(number)
+  const validNumber = isNotNull(streetNumber)
   const validCity = isNotNull(city)
   const validState = isNotNull(state)
   const validJob = isNotNull(job)
@@ -42,31 +42,37 @@ function handleSubmit() {
   const validCpf = validateCpf(cpf)
   const validRg = validateRg(rg)
 
-  const validZipCode = validateCep(zipCode)
+  const validZipCode = validateCep(cep)
 
   const validEmail = validateEmail(email)
   const validBirthDate = validateBirthDate(day, month, year)
 
   if (validBirthDate && validEmail && validZipCode && validCelphoneNumber && validCpf && validRg && validTelphoneNumber && validJob && validState && validCity && validNumber && validNeighborhood && validStreet && validName) {
-    console.log("submit")
+  const body = {
+    name,
+    email,
+    cpf,
+    rg,
+    birthDate: `${day}-${month}-${year}`,
+    telphone,
+    celphone,
+    vehicle: vehicle === "Sim",
+    licence: licence === "Sim",
+    maritalStatus: maritalStatus !== "" ? maritalStatus : null,
+    gender: gender !== "" ? gender : null,
+    job,
+    address: {
+      cep,
+      street,
+      city,
+      neighborhood,
+      complement,
+      streetNumber,
+      state,
+    }
+  }
+  axios.post('http://localhost:4000/cadastro', { body }).then(() => alert('Cadastro realizado com sucesso')).catch(console.error);
   } else {
-    const invalidFields = [
-      {validBirthDate},
-      {validEmail},
-      {validZipCode},
-      {validCelphoneNumber},
-      {validCpf},
-      {validRg},
-      {validTelphoneNumber},
-      {validJob},
-      {validState},
-      {validCity},
-      {validNumber},
-      {validNeighborhood},
-      {validStreet},
-      {validName}
-    ];
-
     alert(`Os campos são inválidos. Verificar preenchimento.`)
   }
 }
@@ -76,6 +82,7 @@ function isNotNull(input) {
 }
 
 function validateCelphoneNumber(phone) {
+  console.log(phone)
   if(isNotNull(phone)) {
     return phone.length === 13 
       && phone.split(" ")[0].length === 2
